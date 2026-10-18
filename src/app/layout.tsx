@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     "디스포저",
   ],
   alternates: { canonical: "/" },
+  verification: {
+    other: { "naver-site-verification": "ba8be783f877b8aafcef8e3c4f8faf6fe978b01a" },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
