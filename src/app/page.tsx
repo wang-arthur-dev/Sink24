@@ -49,9 +49,29 @@ const highlightIcons = {
   parts: BoxIcon,
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  telephone: `+82-${site.phone.slice(1)}`,
+  logo: `${site.url}/logo.png`,
+  image: `${site.url}/opengraph-image.png`,
+  sameAs: [site.blogUrl],
+  makesOffer: services.map((s) => ({
+    "@type": "Offer",
+    itemOffered: { "@type": "Service", name: s.title, description: s.body },
+  })),
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <TopBar />
       <Header />
       <main className="flex-1">
