@@ -17,6 +17,7 @@ import { getLatestPosts } from "@/lib/blog";
 import {
   brands,
   highlights,
+  reviews,
   services,
   site,
   smsHref,
@@ -78,6 +79,7 @@ export default function Home() {
         <Hero />
         <Highlights />
         <Symptoms />
+        <Reviews />
         <Services />
         <Brands />
         <Process />
@@ -278,9 +280,44 @@ function Symptoms() {
   );
 }
 
+function Reviews() {
+  return (
+    <section id="reviews" className="bg-mist/60 py-24">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <SectionTitle eyebrow="고객 후기" title="이용 고객님들의 이야기" />
+      </div>
+      <div className="group mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_4%,black_96%,transparent)] motion-reduce:overflow-x-auto">
+        {/* 목록을 두 번 이어 붙이고 -50%만큼 이동시켜 끊김 없이 반복. pl-4는 gap과 같아야 이음새가 맞음 */}
+        <ul className="flex w-max animate-marquee gap-4 pl-4 group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+          {[...reviews, ...reviews].map((r, i) => (
+            <li
+              key={i}
+              aria-hidden={i >= reviews.length}
+              className="flex w-80 flex-col rounded-2xl border border-navy/10 bg-white p-6 shadow-sm md:w-96"
+            >
+              <ul className="flex flex-wrap gap-1.5">
+                {r.tags.map((t) => (
+                  <li key={t} className="rounded-full bg-mist px-2.5 py-1 text-xs font-medium text-brand">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 line-clamp-6 leading-relaxed text-navy/80">{r.body}</p>
+              <p className="mt-auto pt-5 text-sm text-navy/50">
+                <span className="font-bold text-navy">{r.name}</span>
+                {r.date && <> · {r.date}</>}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function Services() {
   return (
-    <section id="services" className="bg-mist/60 py-24">
+    <section id="services" className="py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionTitle eyebrow="서비스" title="수리부터 설치, 철거까지 한 번에" />
         <a

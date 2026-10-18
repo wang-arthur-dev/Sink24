@@ -20,3 +20,13 @@ body {
   color: var(--color-navy);
   word-break: keep-all;
 }
+
+@theme {
+  --animate-marquee: marquee 70s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
