@@ -4,7 +4,7 @@ export const site = {
   description:
     "음식물처리기 AS, 이전설치 전문 싱크24. 서울 · 인천 · 경기 수도권 출장. 칼날 교체, 막힘·소음·누수 점검, 철거 후 원상복구, 부품 판매까지 전 브랜드 취급. 문의 010-2193-2472",
   url: "https://www.sink24.com",
-  phone: "010-2193-2472",
+  phone: "070-7417-1111",
   blogUrl: "https://blog.naver.com/dsm9785",
   serviceAreas: ["서울특별시", "인천광역시", "경기도"],
 };
